@@ -39,15 +39,11 @@ class Birthday(Field):
             raise ValueError("Invalid date format. Use DD.MM.YYYY")
 
 
-class Owner(Field):
-    pass
-
 class Record:
     def __init__(self, name):
         self.name = Name(name)
         self.phones = []
         self.birthday = None
-        self.owner = None
 
     def add_phone(self, phone):
         phone = Phone(phone)
@@ -67,9 +63,6 @@ class Record:
 
     def add_birthday(self, birthday):
         self.birthday = Birthday(birthday)
-
-    def add_owner(self, owner):
-        self.owner = Owner(owner)
 
     def __str__(self):
         return (f"Contact name: {self.name.value}. Phones: {'; '.join(p.value for p in self.phones)}. "
@@ -110,10 +103,4 @@ class AddressBook(UserDict):
                                                f"Congratulation date: {birthday_this_year}.\n")
             return upcoming_birthdays
         except ValueError:
-            return None
-
-    def get_owner(self, owner=None):
-        if owner in self.data:
-            return owner
-        else:
             return None
