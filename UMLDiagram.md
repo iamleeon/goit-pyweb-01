@@ -15,27 +15,27 @@ classDiagram
         +display_instructions()
     }
     class Field{
-        +value: str
+        +value
     }
     class Phone{
-        +phone_validation()
+        +phone_validation(phone)
     }
     class Record{
         +name
         +phones
         +birthday
-        +add_phone()
-        +remove_phone()
-        +edit_phone()
-        +find_phone()
-        +add_birthday()
+        +add_phone(phone)
+        +remove_phone(phone_to_remove)
+        +edit_phone(old_phone, new_phone)
+        +find_phone(phone)
+        +add_birthday(birthday)
 
     }
     class AddressBook{
-        +add_record()
-        +find()
-        +delete()
-        +get_upcoming_birthdays()
+        +add_record(record)
+        +find(record)
+        +delete(name)
+        +get_upcoming_birthdays(days=7)
     }
 
 ```
